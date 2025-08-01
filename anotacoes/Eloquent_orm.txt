@@ -1,0 +1,12 @@
+O Eloquent ORM 
+  
+  Serve para mapear entidades relacionais e tranforma-las em classes para qque possam ser manipuladas.
+  Essa estratégia e conhecida como Objetct Relational Mapping oque dá o nome de ORM ao Eloquent, SQL 
+  embora seja um linguagem para manipulação de bancos de dados relacionais, ela continua sendo procedural.
+  E a execução e escrita de SQL puro pode não ser a forma mais adequada de uso dentro de alguns projetos,
+  um sistema de ORM quando transforma essas entidades em classes e gera metodos de manipulação permite que
+  essas consultas sejam executadas de forma mais prática e daptada as regras de negocio do sistema em questão.
+
+  Sem que o usuário precise ter um conhecimento aprofundado sobre como funcionam varios SGBDS.O ORM permite 
+  uma conexão prática bastando apenas instalar do driver e configurar o arquivo .env, no caso do laravel.
+     

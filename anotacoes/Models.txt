@@ -1,0 +1,20 @@
+O model é uma representação de uma entidade relacional 
+
+ Eu tenho uma banco de dados já pronto e conectado ao laravel, no meu caso eu criei 
+ um model chamado Product (tem que ser no singular ) e eu tenho uma tabela chamda 
+ products dentro da minha base de dados, isso vai fazer com que o sistema eloquent 
+ norte de ofma automática essa associação , onde o Modelo Product vai controlar
+ um conjunto de products. 
+
+  comando para criar um Model 
+
+  php artisan make:Model Product     
+
+Usando um model para trazer todos os dados, como um moedel é uma classe ele tem alguns 
+metodos de manipulação esse que estou usando equivale a um select geral.
+
+ $products = Product::all();
+
+
+
+
