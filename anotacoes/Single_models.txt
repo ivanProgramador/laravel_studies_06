@@ -1,0 +1,31 @@
+//mecanicas de single model permitem um acesso direto 
+       //ao registro sem a necessidade de usar o where como se 
+       //o where ficasse inplicito 
+
+      // $product = Product::find(10);
+      // echo $product->product_name.'<br>';
+
+
+      //Abaixo eu faço uma consulta onde o sistema vai trazer o primeiro porrdutoi que ele acahar na consulta 
+      //que tenha o valor igual ou superior a 70
+      /*  
+         $product = Product::where('price','>=',70)->first();
+         echo $product->product_name.'<br> tem um preço de R$ '.$product->price.'<br>';
+      */
+
+       //fazendo a amesma consulta , que retona o mesmo resultado de forma mais simples 
+
+      // $product = Product::firstWhere('price','>=',80);
+      // echo $product->product_name.'<br> tem um preço de R$ '.$product->price.'<br>';
+
+      //O sigle model tem mecanicas internas também para devolver uma inodmação ao cliente caso ele
+      //não encontre oque busca o "findOr" quando ele não encontra o registro ele executa a função
+      //que foi passada como parametro, nesse caso ele vai imprimir a mensagem 'Produto não encontrado 
+      //a função pode fazer qualquer coisa redirecionar para uma rota, ou retornar um json
+      //ou até mesmo uma view, o importante é que ele não retorna um erro 404
+      
+      /*  $product = Product::findOr(10,function(){
+          echo 'Produto não encontrado';
+         });
+      
+      */
