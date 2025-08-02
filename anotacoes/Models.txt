@@ -16,5 +16,52 @@ metodos de manipulação esse que estou usando equivale a um select geral.
  $products = Product::all();
 
 
+Abaixo eu tenho um model que não tem o mesmo nome da tabela mas ue faço a ssociação de forma manual 
+
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class TesteModel extends Model
+{
+    //Associar um model a uma tabela mesmo que ele não tenha o mesmo nome
+    //é possivel nesse caso estou controlando a tabela e passando algumas configurações 
+    //no codigo abaixo eu informo aq ue tabela esse model pertence 
+    
+    protected $table = 'products';
+
+    //definindo uma chave primaria 
+
+    protected $primarykey = 'id';
+
+    //desaivando o incremento
+
+    public $incrementing = false; 
+
+     //pesquisando o porduto pelo id 
+        $results = Product::find(10)->toArray();
+
+      //usando a clausula where
+       // $results = Product::where('price','>=',70)
+       //                    ->get()
+       //                    ->toArray(); 
+
+      //selecionando apenas o primeiro reultado da busca
+      //$results = Product::where('price','>=',70)
+      //                     ->first()
+      //                     ->toArray(); 
+      
+      //retornando array vazio caso o elemento não exista 
+     // $results = Product::where('price','>=',170)
+     //                   ->firstOr(function(){
+     //                     return [];
+     //                   });
+
+
+}
+
 
 
