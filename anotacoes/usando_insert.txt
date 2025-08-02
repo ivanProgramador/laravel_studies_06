@@ -1,0 +1,70 @@
+ public function index(){
+
+      //usando o eloquent para gravar dados na base 
+      //como eu estou usando o eloquent 
+      //ele automaticameente vai preencher o campo created_at e updated_at
+      //e o id vai ser auto incrementado
+      //então não preciso passar esses campos 
+
+     /* 
+        $new_product = new Product();
+        $new_product->name = 'Produto 1';
+        $new_product->price = 100.00;
+        $new_product->save();
+      */
+
+      //usando um array para gravar produtos com o eloquent
+      //fazendo dessa forma o laravel vaio entender que eu queroi fazer uma 
+      //inserção em massa e ele não vai deixar a amesno que eu diga
+      // no model se isso é permitido porque damesma forma que posso usar array pra 
+      //gravar um produto em posso fazer isso com varios deles de uma vez
+      
+      /*
+        Então eu tenho que ir dentro do model e colocar o seguinte codigo:
+       
+         class Product extends Model
+          {
+              protected $fillable = [
+               'product_name',
+               'price'
+        
+          ];
+      }
+
+
+      ATENÇÃO!
+        metodo create é feito para a dicionar um registro por vez 
+        ja o medoto insert suporta arrays para gravação em massa   
+      
+      */
+
+
+      Product::insert([
+        [
+         'product_name' => 'Produto 3',
+         'price' => 20,
+         'created_at' => Carbon::now(),
+         'updated_at' => Carbon::now()
+       ],
+       [
+         'product_name' => 'Produto 4',
+         'price' => 30,
+         'created_at' => Carbon::now(),
+         'updated_at' => Carbon::now()
+       ],
+       [
+         'product_name' => 'Produto 5',
+         'price' => 25,
+         'created_at' => Carbon::now(),
+         'updated_at' => Carbon::now()
+       ]   
+      ]);
+      
+      
+      
+
+      
+        
+       
+
+}
