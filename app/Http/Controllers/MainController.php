@@ -10,36 +10,28 @@ class MainController extends Controller
 {
     public function index(){
 
+      //fazendo o update de um registro
+      //nesse caso o eloquent vai fazer o update
+      //conforme o contexto se eu selecionei produto 1 
+      //qualquer update que eu fizer vai ser no produto 1
+      //as linhas abaixo vão pegando os dados por contexto 
 
-      Product::insert([
-        [
-         'product_name' => 'Produto 3',
-         'price' => 20,
-         'created_at' => Carbon::now(),
-         'updated_at' => Carbon::now()
-       ],
-       [
-         'product_name' => 'Produto 4',
-         'price' => 30,
-         'created_at' => Carbon::now(),
-         'updated_at' => Carbon::now()
-       ],
-       [
-         'product_name' => 'Produto 5',
-         'price' => 25,
-         'created_at' => Carbon::now(),
-         'updated_at' => Carbon::now()
-       ]   
-      ]);
+      //update para um unico produto
+      // $product = Product::find(1);
+      // $product->product_name = 'Produto Atualizado'; 
+      // $product->price= 57;
+      // $product->save();
       
-      
-      
+      //update para varios produtos
+      // Product::where('price','>=', 10)
+      //            ->update(['price' => 100]); 
+      //
+      //
 
       
-        
-       
-
-}
+         
+      
+   }
 
 
     private function showData($data){
