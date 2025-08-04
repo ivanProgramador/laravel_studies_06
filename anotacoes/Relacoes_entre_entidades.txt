@@ -1,0 +1,14 @@
+No contexto de bases de dados o relacionamento é algo utilizado para estruturar a base,
+assim como otimizar o tempo de consultas, os tipos mais comuns de relacionamentos.  
+
+1 - um para um 
+    Por exeplo um pais pode ter uma capital 
+
+2 - um para muitos 
+    Uma mãe pode ter varios filhos registados no nome dela 
+
+3 - muitos para muitos 
+    Uma venda pode ter varios produtos, assim como um produto pode estar presente em varias vendas
+
+esses dados podem ser ligados a outros apartir de chaves estrageiras ou de tabelas auxiliares,dependendo
+da regra de negocio que admnistra a base de dados.   
