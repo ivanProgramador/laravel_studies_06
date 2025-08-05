@@ -11,4 +11,21 @@ assim como otimizar o tempo de consultas, os tipos mais comuns de relacionamento
     Uma venda pode ter varios produtos, assim como um produto pode estar presente em varias vendas
 
 esses dados podem ser ligados a outros apartir de chaves estrageiras ou de tabelas auxiliares,dependendo
-da regra de negocio que admnistra a base de dados.   
+da regra de negocio que administra a base de dados.
+
+Criando uma relação de um para um usando o Eloquent 
+ Eu vou começar relacionando um cliente a um telefone a relçao é estabelecida dentro de um model 
+ por exemplo eu usei o model cliente para relacionar um cliente a um telefone.
+
+
+model Client 
+------------------------------------------------------------
+class Client extends Model
+{
+    public function phone():HasOne
+    {
+        return $this->hasOne(Phone::class);
+    }
+}
+-----------------------------------------------------------
+

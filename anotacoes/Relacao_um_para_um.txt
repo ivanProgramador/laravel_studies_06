@@ -1,20 +1,4 @@
-<?php
-
-namespace App\Http\Controllers;
-
-use App\Models\Client;
-use App\Models\Product;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-
-class MainController extends Controller
-{
-    public function index(){
-            
-        echo'Relacionamento Eloquent';
-   }
-
-   public function oneToOne(){
+ public function oneToOne(){
 
             //buscar o telfone do cliente
            // $cliente1 = Client::find(12)->phone;
@@ -50,23 +34,3 @@ class MainController extends Controller
 
            
        }
-
-
-    private function showData($data){
-       
-      echo'<pre>';
-       print_r($data);
-
-    }
-
-    private function ArrayOfObject($data){
-
-        $tmp = [];
-        foreach($data as $key => $value){
-           $tmp[] =(object) $value;
-        }
-        return $tmp;
-      }
-
-
-}

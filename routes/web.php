@@ -5,3 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [MainController::class, 'index'])->name('main.index');
+Route::get('/one_to_one', [MainController::class, 'oneToOne'])->name('main.oneToOne');
