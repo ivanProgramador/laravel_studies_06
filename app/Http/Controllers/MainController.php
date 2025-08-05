@@ -16,6 +16,8 @@ class MainController extends Controller
 
    public function oneToOne(){
 
+
+
             //buscar o telfone do cliente
            // $cliente1 = Client::find(12)->phone;
            // echo'Telefone do ciente id ID '.$cliente1->client_id.'<br>'.$cliente1->phone_number;
@@ -52,6 +54,9 @@ class MainController extends Controller
        }
 
 
+   
+
+
     private function showData($data){
        
       echo'<pre>';
@@ -59,14 +64,31 @@ class MainController extends Controller
 
     }
 
-    private function ArrayOfObject($data){
 
-        $tmp = [];
-        foreach($data as $key => $value){
-           $tmp[] =(object) $value;
+
+     public function oneToMany(){
+
+       //buscar o cliente pelo id e mostrar todos os telefones dele
+
+       // $client1 = Client::find(10);
+       // $phones = $client1->phones;
+       // echo'Nome do cliente : '.$client1->client_name.'<br>';
+       // echo'Telefones do cliente :<br>';
+       // foreach($phones as $phone){
+       //     echo $phone->phone_number . '<br>'; 
+       //  }
+
+       //buscando todos os clientes e seus respectivos telefones
+       $clients = Client::with('phones')->get();
+       foreach($clients as $client){
+         echo'<br>';
+           echo'Nome do cliente : '.$client->client_name.'<br>';
+           echo'Telefones do cliente :<br>';
+        foreach($client->phones as $phone){
+           echo $phone->phone_number . '<br>'; 
         }
-        return $tmp;
-      }
+        }
+     }
 
-
-}
+    }
+            
