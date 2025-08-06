@@ -93,7 +93,7 @@ Como o sistema sabe que existe uma relação entre esses dados ?
 ------------------------------------------------------------------------------
  Relação inversa no caso a realçao inversa faz os telefones buscarem por seus donos
  Como foi dito no inicio as relções começam pelos models mas nesse caso 
- como eo telefone qu vai buscar o cliente então essa começa no Model Phone. 
+ como eo telefone que vai buscar o cliente então essa começa no Model Phone. 
 
 Model Phone 
  ----------------------------------------------------------
@@ -106,6 +106,61 @@ Model Phone
     }
 }
  -------------------------------------------------------------  
+
+Relação de muitos para muitos
+  Essa relação será estabelecida emtre os clientes e os produtos,
+  porque um cliente pode comprar varios produtos e varios produtos podem 
+  se comprados por varios clientes, como todas as relações essa tambem começa 
+  nos models nesse caso.
+
+  No caso não existe uma relação direta estabelecida entre um produto e um cliente
+  por motivos obvios, oque existe uma tabela auxiliar que liga os 2. Usando como base da ligação um registro de 
+  order(encomenda,pedido), nesse caso o cliente fez o pedido de um produto e como o pedido e feito 
+  por um cliente o id dele fica registrado na encomenda  e como ele pediu por um produto o id do produto 
+  tambem esta no registro da encomenda contruindo assim a relação entre os dois.   
+
+  belongsToMany();
+
+  são 4 parametros necessários para fazer uma relação
+  1 -> O model Product 
+  2 -> a tabela que tem os registros que preciso
+  3 -> a coluna relacionada ao cliente que seria o client_id
+  4 -> a coluna relacionada ao produto que seria o product_id   
+
+  belongsToMany(Product::class,'orders','client_id','product_id');
+  
+
+---------------------------------------------------------------------------
+ //estabelencendo a relaçao de muitos para muitos
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class,'orders','client_id','product_id');
+    } 
+--------------------------------------------------------------------------
+
+
+Agora estabelecendo a realçao de muitos para muitos no model client 
+os parametros são os mesmos porem estão invertidos porqque dentro do model 
+client eu tenho que dizer qque um client tem muitos produtos e avisar quais 
+são as colunas de relacionamento.  
+
+-------------------------------------------------------------------------------
+
+class Product extends Model
+{
+
+     //estabelencendo a relaçao de muitos para muitos
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class,'orders','product_id','client_id');
+    } 
+}
+-----------------------------------------------------------------------------------------
+
+
+
+
 
 
 

@@ -21,6 +21,12 @@ class Client extends Model
         return $this->hasMany(Phone::class);
     }
 
+    //estabelencendo a relaçao de muitos para muitos
+    public function products()
+    {
+        return $this->belongsToMany(Product::class,'orders','client_id','product_id');
+    } 
+
 
 
 }

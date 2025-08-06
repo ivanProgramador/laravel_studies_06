@@ -8,3 +8,4 @@ Route::get('/', [MainController::class, 'index'])->name('main.index');
 Route::get('/one_to_one', [MainController::class, 'oneToOne'])->name('main.oneToOne');
 Route::get('/one_to_many', [MainController::class, 'oneToMany'])->name('main.oneToMany');
 Route::get('/belongs_to', [MainController::class, 'belogsTo'])->name('main.belongsTo');
+Route::get('/many_to_many', [MainController::class, 'manyToMany'])->name('main.manyToMany');
