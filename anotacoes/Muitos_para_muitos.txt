@@ -1,0 +1,22 @@
+public function manyToMany(){
+      
+      //buscar por um cliente a mostrar os produtos que ele comprou
+     //  $client1 = Client::find(1);
+     //  $products = $client1->products; 
+     //  echo'Nome do cliente : '.$client1->client_name.'<br>';
+     // echo'Produtos comprados pelo cliente :<br>';
+     // foreach($products as $product){  
+     //    echo $product->product_name . '<br>'; 
+     //  } 
+
+      //buscando os clientes que compraram determnados produtos
+      //busca inversa nesse caso ele mostra o nome do porduto e em baixa a lista dos 
+      //clientes que compraram o produto 
+
+      $product1 = Product::find(3);
+      $clients = $product1->clients; 
+      echo'Nome do produto : '.$product1->product_name.'<br>';
+      echo'clientes :<br>';
+      foreach($clients as $client){  
+         echo $client->client_name . '<br>'; 
+      }

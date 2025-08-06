@@ -128,14 +128,35 @@ class MainController extends Controller
       echo'clientes :<br>';
       foreach($clients as $client){  
          echo $client->client_name . '<br>'; 
-      } 
+      }
+   } 
       
+  public function runingQueries(){
       
+     //buscando todos os telefones que pertecem a um cliente que começa com o numero 8
+
+    //  $client1 = Client::find(9);
+    //  $phones = $client1->phones()->where('phone_number','like','%8')->get();
+    //  echo'Cliente: '.$client1->client_name.'<br>';
+    //  echo'Telefones: <br>';
+    //  foreach($phones as $phone){
+    //    echo $phone->phone_number.'<br>';
+    //  }
+
+   // buscando tdos os produtos comprados por u cliente com o valor acima de 50 reais 
+   // $client2 = Client::find(9);
+   // $products = $client2->products()->where('price','>',50)->get();
+   // echo'Cliente: '.$client2->client_name.'<br>';
+   // echo'<br>';
+   // foreach($products as $product){
+   //    echo $product->product_name.'-'.$product->price.'<br>';
+   // }
+
+   //
+    }      
 
 
 
 
 
-    }
-            
-   }
+}
