@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Product;
+use App\Models\Phone;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -89,6 +90,25 @@ class MainController extends Controller
         }
         }
      }
+
+     public function belogsTo(){
+
+      //   nesse metodo eu vou pegar o telefone e mostrar o cliente que pertence a ele
+      //   $phone1 = Phone::find(10);
+      //   $client = $phone1->client;
+      //   echo'Nome do cliente : '.$client->client_name.'<br>'; 
+      //   echo'Telefone do cliente : '.$phone1->phone_number.'<br>';
+      
+      //fazendo o mesmo processo mas com o metodo with
+      // $phones = Phone::with('client')->find(10);
+      // echo"<br>";
+      // echo'Telefone do cliente : '.$phones->phone_number.'<br>';  
+      // echo'Nome do cliente : '.$phones->client->client_name.'<br>';
+     
+   }
+
+
+
 
     }
             

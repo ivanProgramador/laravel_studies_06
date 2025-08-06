@@ -32,7 +32,7 @@ class Client extends Model
 }
 -----------------------------------------------------------
 
-Aqui eu faço a relação de um para muitos entre cleintes e telefones 
+Aqui eu faço a relação de um para muitos entre clientes e telefones 
 o nome do metodo é muito literal e isso ajudar bastante a entender oque esta acontecendo
 
 model Cliente
@@ -45,6 +45,8 @@ model Cliente
     }
 
 --------------------------------------------------------
+
+
 
 Como o sistema sabe que existe uma relação entre esses dados ?
  Quando eu crio uma relação ebntre duas tabelas o Eloquent pre-supoe que existe uma ligação
@@ -89,7 +91,21 @@ Como o sistema sabe que existe uma relação entre esses dados ?
         
     }
 ------------------------------------------------------------------------------
- 
+ Relação inversa no caso a realçao inversa faz os telefones buscarem por seus donos
+ Como foi dito no inicio as relções começam pelos models mas nesse caso 
+ como eo telefone qu vai buscar o cliente então essa começa no Model Phone. 
+
+Model Phone 
+ ----------------------------------------------------------
+ class Phone extends Model
+{
+    public function client()
+    {
+        // Relação inversa: um telefone pertence a um cliente
+        return $this->belongsTo(Client::class, 'client_id');
+    }
+}
+ -------------------------------------------------------------  
 
 
 
