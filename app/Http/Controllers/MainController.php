@@ -182,20 +182,82 @@ public function SameResults(){
    //    echo $product->product_name.' - '.$product->price.'<br>';
    //  }
 
-   //Nos casos aacima eu ate tenho um reultado esperado  sem usar as relações 
+   //Nos casos aacima eu ate tenho um resultado esperado  sem usar as relações 
    //porem eu tenho que fazer duas consultas para consultar isso então não é algo pratico de se usar   
 
-    
+    }
+
+
+    public function colections(){
+
+      //No retorno dessa consulta sera devolvido uma coleção de objetos 
+      // da classe Colection 
+
+      //  $clients = Client::take(5)->get();
+      //  $this->showData($clients);
+
+      //usando APPEND
+      //no caso eu consigo adicionar campos e manipular aa exibição dos dados      
+      $clients = Client::take(5)->get();
+
+      //aqui eu faço a adição de dois campos 
+      $clients->each->append(['client_name_uppercase','email_domain']);
+
+      foreach($clients as $client){
+         //aqui eu edito como esses campos vão se comportar
+         // o campo 'client_name_uppercase' ao receber o nome do clienrte vai deixara  fonte em caixa alta 
+         $client->client_name_uppercase = strtoupper($client->client_name);
+
+         //ja o campo 'email_domain' ao receber o email vai explodir a string 
+         //usando como base o '@' então essa string vai virara um array de 2 posições 
+         // na posição 0 que esta na frente do @ vai ficar a primera parte do email 
+         // na posição 1 vai ficar oque vendepois do '@' que seria o domain 
+         //é oque me interessa então abaixo eo mostro so a posição 1 do array     
 
 
 
+         $client->email_domain = explode('@',$client->email)[1];
+      }
 
 
+
+      //agora eu posso apresentar os dados 
+      
+      foreach($clients as $client){
+
+       //   echo $client->client_name." - ".$client->client_name_uppercase." - ".$client->email_domain.'<br>';
+
+      }
+
+      //makehiden
+      // esse metodo é usado para esconder algumas colunas na exibição 
+       $clients = Client::take(15)->get();
+       $clients->makeHidden(['id','created_at','deleted_at','updated_at']);
+       $this->showData($clients->toArray());
+
+      //existem outras funções que podem ser uteis na classe colections eu peqguie somente essas duas como exemplo  
+
+
+      
+
+
+    }
+
+
+
+   public function Serialization()
+   {
+      // Serializando uma coleção de clientes para JSON
+      //A constantante 'JSON_PRETTY_PRINT' serve para ordenar a exibição 
+      $clients = Client::take(5)->get();
+      $json = $clients->toJson(JSON_PRETTY_PRINT);
+
+      // Exibindo o array
+      echo '<pre>';
+      print_r($json);
+      echo '</pre>';
+   }
 
 }
 
 
-
-
-
-}
