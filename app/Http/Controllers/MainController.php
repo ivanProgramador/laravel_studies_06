@@ -153,7 +153,46 @@ class MainController extends Controller
    // }
 
    //
-    }      
+}
+
+public function SameResults(){
+     
+      // obtendo dados reslacionados mas sem usar as relações 
+     // buscando um clientes e seus telefones não é aocnselhavel fazer consultas dessa forma estou fazendo isso 
+     // para mostrar que é possivel 
+
+    //  $client1 = Client::find(1);
+    //  $phones  = Phone::where('client_id',$client1->id)->get();
+    // echo'Cliente: '.$client1->client_name.'<br>';
+    // echo'Telefones: <br>';
+    // foreach($phones as $phone){
+    //   echo $phone->phone_number.'<br>';
+    //   
+    //  }
+
+   // Buscando todos os pordutos que um cliente comprou 
+   // $client2 = Client::find(1);
+   // $products = Product::join('orders','products.id','=','orders.product_id')
+   //                 ->where('orders.client_id',$client2->id)
+   //                 ->get();
+   //  echo'<br>';
+   //  echo'Cliente : '.$client2->client_name.'<br>';
+   //  echo'Produtos <br>';
+   //  foreach($products as $product){
+   //    echo $product->product_name.' - '.$product->price.'<br>';
+   //  }
+
+   //Nos casos aacima eu ate tenho um reultado esperado  sem usar as relações 
+   //porem eu tenho que fazer duas consultas para consultar isso então não é algo pratico de se usar   
+
+    
+
+
+
+
+
+
+}
 
 
 

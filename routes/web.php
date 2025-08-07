@@ -10,3 +10,4 @@ Route::get('/one_to_many', [MainController::class, 'oneToMany'])->name('main.one
 Route::get('/belongs_to', [MainController::class, 'belogsTo'])->name('main.belongsTo');
 Route::get('/many_to_many', [MainController::class, 'manyToMany'])->name('main.manyToMany');
 Route::get('/runing_queries',[MainController::class,'runingQueries'])->name('main.runingQueries');
+Route::get('/same_results',[MainController::class,'SameResults'])->name('main.sameResults');
